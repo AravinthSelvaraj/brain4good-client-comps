@@ -1,12 +1,10 @@
 import React, { ReactElement } from "react";
 
-import Heading from "./heading/Heading";
-import Content from "./content/Content";
+import WebglExample from "./webgl-example/WebglExample";
 
 const App: React.FC = (): ReactElement => (
     <>
-        <Heading />
-        <Content />
+        <WebglExample />
     </>
 );
 

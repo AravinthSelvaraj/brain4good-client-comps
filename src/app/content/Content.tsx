@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement } from 'react';
 
-import content from "./content.module.css";
-import car from "./car.jpeg";
+import content from './content.module.css';
+import car from './car.jpeg';
 
 const Content: React.FC = (): ReactElement => (
     <div className={content.container}>

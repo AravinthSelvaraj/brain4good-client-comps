@@ -5,6 +5,13 @@ import { CheckboxInputField } from "./checkbox-input-field/CheckboxInputField";
 import { SubmitInputField } from "./submit-input-field/SubmitInputField";
 
 import "./input-field.css";
+import { RadioInputField } from "./radio-input-field/RadioInputField";
+
+export interface IInputFieldOption {
+    value: string,
+    label: string,
+    selected?: boolean
+}
 
 export interface IInputField {
     name: string
@@ -15,12 +22,13 @@ export interface IInputField {
 type InputFieldProps = {
     name: string
     label: string
-    type: 'submit' | 'checkbox' | "text" | "password"
+    type: 'submit' | 'checkbox' | 'radio' | 'text' | 'password'
     defaultValue?: string | boolean
     btnType?: string
+    options?: IInputFieldOption[]
 }
 
-export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defaultValue, btnType }: InputFieldProps): ReactElement => {
+export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defaultValue, btnType, options }: InputFieldProps): ReactElement => {
     if (type === 'submit') {
         return (
             <SubmitInputField name={name} label={label} btnType={btnType} />
@@ -29,6 +37,11 @@ export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defau
     if (type === 'checkbox') {
         return (
             <CheckboxInputField name={name} label={label} defaultValue={defaultValue as boolean} />
+        );
+    }
+    if (type === 'radio') {
+        return (
+            <RadioInputField name={name} label={label} options={options} defaultValue={defaultValue as string} />
         );
     }
     if (type === 'text' || type === 'password') {

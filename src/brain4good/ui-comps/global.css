@@ -21,3 +21,7 @@
 .fl {
     float: left;
 }
+
+.hidden {
+    display: none;
+}

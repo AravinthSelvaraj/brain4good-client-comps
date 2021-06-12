@@ -1,0 +1,32 @@
+.radio-input-field-option .label-span {
+    vertical-align: middle;
+    font-size: 0.8125rem;
+}
+
+.radio-input-field-option .radio-span {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+    vertical-align: middle;
+    border: 1px solid rgb(221, 219, 218);
+    border-radius: 50%;
+    background: none;
+    background-color: rgb(255, 255, 255);
+    transition: border 0.1s linear, background-color 0.1s linear;
+}
+
+.radio-input-field-option.checked .radio-span::after {
+    width: .5rem;
+    height: .5rem;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border-radius: 50%;
+    background: none;
+    background-color: rgb(0, 112, 210);
+}

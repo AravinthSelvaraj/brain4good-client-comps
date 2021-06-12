@@ -1,15 +1,14 @@
 import React, { ReactElement, useState } from "react";
 
+import { IInputField } from "../InputField";
 import "./text-input-field.css";
 
-type Props = {
-    name: string,
-    label: string,
-    type: string,
+interface ITextInputField extends IInputField {
     defaultValue?: string
-};
+    type?: string
+}
 
-const TextInputField: React.FC<Props> = ({ name, label, type, defaultValue = "" }: Props): ReactElement => {
+export const TextInputField: React.FC<ITextInputField> = ({ name, label, type, defaultValue = "" }: ITextInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
         <div className="input-field">
@@ -22,5 +21,3 @@ const TextInputField: React.FC<Props> = ({ name, label, type, defaultValue = "" 
         </div>
     );
 };
-
-export default TextInputField;

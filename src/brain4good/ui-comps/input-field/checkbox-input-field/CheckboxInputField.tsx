@@ -1,26 +1,22 @@
 import React, { ReactElement, useState } from "react";
 
+import { IInputField } from "../InputField";
 import "./checkbox-input-field.css";
 
-type Props = {
-    name: string,
-    label: string,
-    type: string,
-    defaultValue?: string
-};
+interface ICheckboxInputField extends IInputField {
+    defaultValue?: boolean
+}
 
-const CheckboxInputField: React.FC<Props> = ({ name, label, type, defaultValue = "" }: Props): ReactElement => {
+export const CheckboxInputField: React.FC<ICheckboxInputField> = ({ name, label, defaultValue = false }: ICheckboxInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
         <div className="checkbox-input-field">
-            <input className="checkbox-input-field mr8 r4 fl" type={type}
-                name={name} value={value}
+            <input className="checkbox-input-field mr8 r4 fl" type="checkbox"
+                name={name} checked={value}
                 onChange={(event: React.FocusEvent<HTMLInputElement>) => {
-                    setValue(event.target.value);
+                    setValue(event.target.checked);
                 }} />
             <label htmlFor={name} className="checkbox-input-field-label">{label}</label>
         </div>
     );
 };
-
-export default CheckboxInputField;

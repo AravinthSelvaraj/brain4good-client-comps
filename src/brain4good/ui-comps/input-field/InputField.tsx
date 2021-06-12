@@ -1,33 +1,37 @@
 import React, { ReactElement } from "react";
 
-import TextInputField from "./text-input-field/TextInputField";
-import CheckboxInputField from "./checkbox-input-field/CheckboxInputField";
-import SubmitInputField from "./submit-input-field/SubmitInputField";
+import { TextInputField } from "./text-input-field/TextInputField";
+import { CheckboxInputField } from "./checkbox-input-field/CheckboxInputField";
+import { SubmitInputField } from "./submit-input-field/SubmitInputField";
 
 import "./input-field.css";
 
-type Props = {
-    name: string,
-    label: string,
-    type: string,
-    defaultValue?: string
-    btnType?: string,
-};
+export interface IInputField {
+    name: string
+    label: string
+    defaultValue?: string | boolean
+}
 
-const InputField: React.FC<Props> = ({ name, label, type, defaultValue, btnType }: Props): ReactElement => {
-    if (type === "submit") {
+type InputFieldProps = {
+    name: string
+    label: string
+    type: string
+    defaultValue?: string | boolean
+    btnType?: string
+}
+
+export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defaultValue, btnType }: InputFieldProps): ReactElement => {
+    if (type === 'submit') {
         return (
             <SubmitInputField name={name} label={label} btnType={btnType} />
         );
     }
-    if (type === "checkbox") {
+    if (type === 'checkbox') {
         return (
-            <CheckboxInputField name={name} label={label} type={type} defaultValue={defaultValue} />
+            <CheckboxInputField name={name} label={label} defaultValue={defaultValue as boolean} />
         );
     }
     return (
-        <TextInputField name={name} label={label} type={type} defaultValue={defaultValue} />
+        <TextInputField name={name} label={label} type={type} defaultValue={defaultValue as string} />
     );
-};
-
-export default InputField;
+}

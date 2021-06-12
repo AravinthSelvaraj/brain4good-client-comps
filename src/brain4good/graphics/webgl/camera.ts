@@ -1,4 +1,5 @@
 import { Transformation } from "./transformation";
+import { ShaderProgram } from "./material";
 
 export class Camera {
   position: Transformation;
@@ -9,14 +10,14 @@ export class Camera {
     this.projection = new Transformation()
   }
 
-  setOrthographic(width: number, height: number, depth: number) {
+  setOrthographic = (width: number, height: number, depth: number): void => {
     this.projection = new Transformation()
     this.projection.fields[0] = 2 / width
     this.projection.fields[5] = 2 / height
     this.projection.fields[10] = -2 / depth
   }
 
-  setPerspective(verticalFov: number, aspectRatio: number, near: number, far: number) {
+  setPerspective = (verticalFov: number, aspectRatio: number, near: number, far: number): void => {
     const height_div_2n = Math.tan(verticalFov * Math.PI / 360)
     const width_div_2n = aspectRatio * height_div_2n
     this.projection = new Transformation()
@@ -28,7 +29,7 @@ export class Camera {
     this.projection.fields[15] = 0
   }
 
-  getInversePosition() {
+  getInversePosition = (): Transformation => {
     const orig = this.position.fields
     const dest = new Transformation()
     const x = orig[12]
@@ -45,7 +46,7 @@ export class Camera {
     return dest.translate(-x, -y, -z)
   }
 
-  use(shaderProgram: any) {
+  use = (shaderProgram: ShaderProgram): void => {
     this.projection.sendToGpu(shaderProgram.gl, shaderProgram.projection)
     this.getInversePosition().sendToGpu(shaderProgram.gl, shaderProgram.view)
   }

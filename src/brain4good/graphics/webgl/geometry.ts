@@ -5,7 +5,7 @@ export class Geometry {
   }
 
   // Parses an OBJ file, passed as a string
-  static parseOBJ(src: string) {
+  static parseOBJ = (src: string): Geometry => {
     const POSITION = /^v\s+([\d\.\+\-eE]+)\s+([\d\.\+\-eE]+)\s+([\d\.\+\-eE]+)/;
     const NORMAL = /^vn\s+([\d\.\+\-eE]+)\s+([\d\.\+\-eE]+)\s+([\d\.\+\-eE]+)/;
     const UV = /^vt\s+([\d\.\+\-eE]+)\s+([\d\.\+\-eE]+)/;
@@ -47,7 +47,7 @@ export class Geometry {
   }
 
   // Loads an OBJ file from the given URL, and returns it as a promise
-  static loadOBJ(url: string) {
+  static loadOBJ = (url: string): Promise<Geometry> => {
     return new Promise(function (resolve) {
       const xhr = new XMLHttpRequest()
       xhr.onreadystatechange = function () {
@@ -60,12 +60,12 @@ export class Geometry {
     })
   }
 
-  vertexCount() {
+  vertexCount(): number {
     return this.faces.length * 3
   }
 
-  positions() {
-    const answer: any = []
+  positions = (): number[] => {
+    const answer: number[] = []
     this.faces.forEach(function (face) {
       face.vertices.forEach(function (vertex) {
         const v = vertex.position
@@ -75,8 +75,8 @@ export class Geometry {
     return answer
   }
 
-  normals() {
-    const answer: any = []
+  normals = (): number[] => {
+    const answer: number[] = []
     this.faces.forEach(function (face) {
       face.vertices.forEach(function (vertex) {
         const v = vertex.normal
@@ -86,8 +86,8 @@ export class Geometry {
     return answer
   }
 
-  uvs() {
-    const answer: any = []
+  uvs = (): number[] => {
+    const answer: number[] = []
     this.faces.forEach(function (face) {
       face.vertices.forEach(function (vertex) {
         const v = vertex.uv

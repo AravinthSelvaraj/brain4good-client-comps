@@ -1,11 +1,14 @@
 export class VBO {
-  gl: any;
-  data: [];
+  gl: WebGLRenderingContext;
+  data: WebGLBuffer;
   count: number;
   size: number;
-  constructor(gl: any, data: [], count: number) {
+  constructor(gl: WebGLRenderingContext, data: number[], count: number) {
     // Creates buffer object in GPU RAM where we can store anything
     const bufferObject = gl.createBuffer()
+    if (bufferObject == null) {
+      throw Error("WebGLBuffer created is null");
+    }
     // Tell which buffer object we want to operate on as a VBO
     gl.bindBuffer(gl.ARRAY_BUFFER, bufferObject)
     // Write the data, and set the flag to optimize
@@ -17,12 +20,12 @@ export class VBO {
     this.size = data.length / count
   }
 
-  destroy() {
+  destroy = (): void => {
     // Free memory that is occupied by our buffer object
     this.gl.deleteBuffer(this.data)
   }
 
-  bindToAttribute(attribute: any) {
+  bindToAttribute = (attribute: number): void => {
     const gl = this.gl
     // Tell which buffer object we want to operate on as a VBO
     gl.bindBuffer(gl.ARRAY_BUFFER, this.data)

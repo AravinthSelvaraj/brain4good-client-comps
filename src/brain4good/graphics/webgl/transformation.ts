@@ -6,7 +6,7 @@ export class Transformation {
   }
 
   // Multiply matrices, to chain transformations
-  mult(t: Transformation) {
+  mult = (t: Transformation): Transformation => {
     const output = new Transformation()
     for (let row = 0; row < 4; ++row) {
       for (let col = 0; col < 4; ++col) {
@@ -21,7 +21,7 @@ export class Transformation {
   }
 
   // Multiply by translation matrix
-  translate(x: number, y: number, z: number) {
+  translate = (x: number, y: number, z: number): Transformation => {
     const mat = new Transformation()
     mat.fields[12] = Number(x) || 0
     mat.fields[13] = Number(y) || 0
@@ -30,7 +30,7 @@ export class Transformation {
   }
 
   // Multiply by scaling matrix
-  scale(x: number, y: number, z: number) {
+  scale = (x: number, y: number, z: number): Transformation => {
     const mat = new Transformation()
     mat.fields[0] = Number(x) || 0
     mat.fields[5] = Number(y) || 0
@@ -39,7 +39,7 @@ export class Transformation {
   }
 
   // Multiply by rotation matrix around X axis
-  rotateX(angle: number) {
+  rotateX = (angle: number): Transformation => {
     angle = Number(angle) || 0
     const c = Math.cos(angle)
     const s = Math.sin(angle)
@@ -52,7 +52,7 @@ export class Transformation {
   }
 
   // Multiply by rotation matrix around Y axis
-  rotateY(angle: number) {
+  rotateY = (angle: number): Transformation => {
     angle = Number(angle) || 0
     const c = Math.cos(angle)
     const s = Math.sin(angle)
@@ -65,7 +65,7 @@ export class Transformation {
   }
 
   // Multiply by rotation matrix around Z axis
-  rotateZ(angle: number) {
+  rotateZ = (angle: number): Transformation => {
     angle = Number(angle) || 0
     const c = Math.cos(angle)
     const s = Math.sin(angle)
@@ -77,7 +77,7 @@ export class Transformation {
     return this.mult(mat)
   }
 
-  sendToGpu(gl: any, uniform: any, transpose?: any) {
+  sendToGpu = (gl: WebGLRenderingContext, uniform: WebGLUniformLocation, transpose?: boolean): void => {
     gl.uniformMatrix4fv(uniform, transpose || false, new Float32Array(this.fields))
   }
 }

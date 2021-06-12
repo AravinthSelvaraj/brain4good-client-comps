@@ -2,17 +2,18 @@ import { VBO } from "./vbo";
 import { Transformation } from "./transformation";
 import { Geometry } from "./geometry";
 import { Texture } from "./texture";
+import { ShaderProgram } from "./material";
 
 export class Mesh {
   positions: VBO;
   normals: VBO;
   uvs: VBO;
-  texture: any;
+  texture: Texture;
   vertexCount: number;
   position: Transformation;
-  gl: any;
+  gl: WebGLRenderingContext;
 
-  constructor(gl: any, geometry: any, texture: any) {
+  constructor(gl: WebGLRenderingContext, geometry: Geometry, texture: Texture) {
     const vertexCount = geometry.vertexCount()
     this.positions = new VBO(gl, geometry.positions(), vertexCount)
     this.normals = new VBO(gl, geometry.normals(), vertexCount)
@@ -23,13 +24,13 @@ export class Mesh {
     this.gl = gl
   }
 
-  destroy() {
+  destroy = (): void => {
     this.positions.destroy()
     this.normals.destroy()
     this.uvs.destroy()
   }
 
-  draw(shaderProgram: any) {
+  draw = (shaderProgram: ShaderProgram): void => {
     this.positions.bindToAttribute(shaderProgram.position)
     this.normals.bindToAttribute(shaderProgram.normal)
     this.uvs.bindToAttribute(shaderProgram.uv)
@@ -38,11 +39,11 @@ export class Mesh {
     this.gl.drawArrays(this.gl.TRIANGLES, 0, this.vertexCount)
   }
 
-  static load(gl: any, modelUrl: string, textureUrl: string) {
+  static load = (gl: WebGLRenderingContext, modelUrl: string, textureUrl: string): Promise<Mesh> => {
     const geometry = Geometry.loadOBJ(modelUrl)
     const texture = Texture.load(gl, textureUrl)
     return Promise.all([geometry, texture]).then(function (params) {
-      return new Mesh(gl, params[0], params[1])
+      return new Mesh(gl, params[0] as Geometry, params[1])
     })
   }
 }

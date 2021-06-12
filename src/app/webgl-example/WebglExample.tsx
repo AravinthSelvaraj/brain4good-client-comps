@@ -11,8 +11,8 @@ import diffuseImg from "./assets/diffuse.png";
 import basicVert from "./shaders/basic.vert";
 import basicFrag from "./shaders/basic.frag";
 
-const loadHandler = () => {
-    const renderer = new Renderer(document.getElementById('webgl-canvas'));
+const loadHandler = (canvas: HTMLCanvasElement) => {
+    const renderer = new Renderer(canvas);
     renderer.setClearColor(100, 149, 237);
     const gl = renderer.getContext();
     const objects: Mesh[] = [];
@@ -38,11 +38,12 @@ const loadHandler = () => {
 };
 
 const WebglExample: React.FC = () => {
+    const canvasRef = useRef(null);
     useEffect(() => {
-        loadHandler();
+        loadHandler(canvasRef.current as unknown as HTMLCanvasElement);
     }, [])
     return (
-        <canvas id="webgl-canvas" width="800" height="500"></canvas>
+        <canvas ref={canvasRef} width="800" height="500"></canvas>
     );
 }
 

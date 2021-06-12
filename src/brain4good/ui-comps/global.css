@@ -1,0 +1,23 @@
+.pad10 {
+    padding: 10px;
+}
+
+.mt8 {
+    margin-top: 0.5rem;
+}
+
+.mb16 {
+    margin-bottom: 1rem;
+}
+
+.mr8 {
+    margin-right: 8px;
+}
+
+.r4 {
+    border-radius: 4px;
+}
+
+.fl {
+    float: left;
+}

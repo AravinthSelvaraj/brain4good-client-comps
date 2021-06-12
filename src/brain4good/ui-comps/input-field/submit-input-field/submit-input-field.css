@@ -1,0 +1,29 @@
+.submit-input-field-input {
+    padding: 12px 24px;
+    border-radius: 4px;
+    border: 0px;
+    font-size: 0.8125rem;
+    font-family: SFS, Arial, sans-serif;
+    color: white;
+    background-color: rgb(216, 221, 230);
+    cursor: pointer;
+    background-image: none !important;
+    width: 100%;
+}
+
+.primary {
+    background-color: rgb(0, 112, 210);
+    color: white;
+    transition: all 0.1s ease 0s;
+    border: 1px solid transparent;
+}
+
+.secondary {
+    background-color: #ffffff;
+    border: 1px solid #D8DDE6;
+    color: #0070d2 !important;
+}
+
+.secondary:hover {
+    background-color: #F4F6F9;
+}

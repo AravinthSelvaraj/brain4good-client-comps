@@ -1,12 +1,16 @@
 import React, { ReactElement } from "react";
 
-import Heading from "./heading/Heading";
-import Content from "./content/Content";
+import "../brain4good/ui-comps/global.css";
+
+// import Heading from "./heading/Heading";
+// import Content from "./content/Content";
+import Create from "./crud/Create";
 
 const App: React.FC = (): ReactElement => (
     <>
-        <Heading />
-        <Content />
+        {/* <Heading />
+        <Content /> */}
+        <Create />
     </>
 );
 

@@ -1,0 +1,11 @@
+.checkbox-input-field {
+    position: relative;
+}
+
+.checkbox-input-field-label {
+    color: #16325c;
+}
+
+.checkbox-input-field-input {
+    width: auto;
+}

@@ -1,31 +1,19 @@
-.input-field {
-    position: relative;
-}
-
-.input-field-label {
+.text-input-field>label {
     font-size: 12px;
     color: rgb(84, 105, 141);
-    margin: 0px 0px 8px;
-    line-height: inherit;
 }
 
-.input-field-input {
-    display: block;
+.text-input-field>input {
     border: 1px solid rgb(216, 221, 230);
     border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    font-family: SFS, Arial, sans-serif;
     box-sizing: border-box;
-    appearance: none;
     font-size: 0.8125rem;
     transition: all 0.1s ease 0s;
     width: 100%;
     padding: 12px;
 }
 
-.input-field-input:focus {
-    background-color: rgb(255, 255, 255);
+.text-input-field>input:focus {
     border: 1px solid rgb(21, 137, 238);
-    outline: 0px;
     box-shadow: rgb(0 112 210) 0px 0px 3px;
 }

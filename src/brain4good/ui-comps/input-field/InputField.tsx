@@ -15,7 +15,7 @@ export interface IInputField {
 type InputFieldProps = {
     name: string
     label: string
-    type: string
+    type: 'submit' | 'checkbox' | "text" | "password"
     defaultValue?: string | boolean
     btnType?: string
 }
@@ -31,7 +31,12 @@ export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defau
             <CheckboxInputField name={name} label={label} defaultValue={defaultValue as boolean} />
         );
     }
+    if (type === 'text' || type === 'password') {
+        return (
+            <TextInputField name={name} label={label} type={type} defaultValue={defaultValue as string} />
+        );
+    }
     return (
-        <TextInputField name={name} label={label} type={type} defaultValue={defaultValue as string} />
-    );
+        <span>Invalid type is given</span>
+    )
 }

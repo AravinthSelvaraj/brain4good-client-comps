@@ -15,6 +15,12 @@ export const Create: React.FC = (): ReactElement => (
                     { "label": "Male", "value": "Male" },
                     { "label": "Female", "value": "Female" }
                 ]} />
+                <InputField name="role" label="Role" type="select" options={[
+                    { "label": "", "value": "" },
+                    { "label": "Student", "value": "Student" },
+                    { "label": "Teacher", "value": "Teacher" },
+                    { "label": "Admin", "value": "Admin" }
+                ]} />
                 <InputField name="terms" label="I agree to the terms and conditions" type="checkbox" />
                 <InputField name="save" label="Save" type="submit" />
                 <InputField name="discard" label="Discard" type="submit" btnType="secondary" />

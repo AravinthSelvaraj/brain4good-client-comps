@@ -1,0 +1,46 @@
+.select-input-field label {
+    display: block;
+    font-size: 12px;
+    color: rgb(84, 105, 141);
+}
+
+.select-input-field div::before {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-left: .7rem solid transparent;
+    border-right: .7rem solid transparent;
+    border-top: .9rem solid #215ca0;
+    right: 0.5rem;
+    transform: scale(.45);
+    top: 1.8rem;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.select-input-field select {
+    height: 100%;
+    font-size: 0.8125rem;
+    padding: 12px !important;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid rgb(216, 221, 230);
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    transition: all 0.1s ease 0s;
+}
+
+.select-input-field select:focus {
+    border: 1px solid rgb(21, 137, 238);
+    box-shadow: rgb(0 112 210) 0px 0px 3px;
+    outline: 0px;
+}
+
+.select-input-field select option {
+    color: #181818;
+}

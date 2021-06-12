@@ -1,3 +1,7 @@
+.radio-input-field-option label {
+    cursor: pointer;
+}
+
 .radio-input-field-option .label-span {
     vertical-align: middle;
     font-size: 0.8125rem;

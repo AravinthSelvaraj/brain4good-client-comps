@@ -11,19 +11,18 @@ interface ISelectInputField extends IInputField {
 export const SelectInputField: React.FC<ISelectInputField> = ({ name, label, options = [], defaultValue }: ISelectInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
-        <div className="select-input-field mt8 mb16">
+        <div className="select-input-field">
             <label htmlFor="role">{label}</label>
-            <div>
-                <select name={name} value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
-                    setValue(event.target.value);
-                }}>
-                    {
-                        options.map((option, index) =>
-                            <option key={index} value={option.value}>{option.label}</option>
-                        )
-                    }
-                </select>
-            </div>
+            <span className="down-arrow">&nbsp;</span>
+            <select name={name} value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+                setValue(event.target.value);
+            }}>
+                {
+                    options.map((option, index) =>
+                        <option key={index} value={option.value}>{option.label}</option>
+                    )
+                }
+            </select>
         </div>
     );
 };

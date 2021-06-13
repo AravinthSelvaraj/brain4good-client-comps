@@ -4,7 +4,7 @@
     color: rgb(84, 105, 141);
 }
 
-.select-input-field div::before {
+.select-input-field .down-arrow::before {
     content: "";
     display: block;
     margin: auto;

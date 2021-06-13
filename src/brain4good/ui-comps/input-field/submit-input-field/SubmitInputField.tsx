@@ -11,7 +11,7 @@ interface ISubmitInputField extends IInputField {
 export const SubmitInputField: React.FC<ISubmitInputField> = ({ name, label, btnType = "primary" }: ISubmitInputField): ReactElement => {
     return (
         <div className="submit-input-field">
-            <input className={`${btnType} mt8`} type="submit"
+            <input className={`${btnType}`} type="submit"
                 name={name} value={label} />
         </div>
     );

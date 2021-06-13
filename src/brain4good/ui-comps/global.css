@@ -1,17 +1,21 @@
-.pad10 {
-    padding: 10px;
+.pad8 {
+    padding: 8px;
 }
 
 .mt8 {
     margin-top: 0.5rem;
 }
 
-.mb16 {
-    margin-bottom: 1rem;
+.mb8 {
+    margin-bottom: 0.5rem;
 }
 
 .mr8 {
     margin-right: 8px;
+}
+
+.mb16 {
+    margin-bottom: 1rem;
 }
 
 .r4 {

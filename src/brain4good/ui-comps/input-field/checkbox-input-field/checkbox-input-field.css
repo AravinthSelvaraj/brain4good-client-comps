@@ -1,3 +1,7 @@
+.checkbox-input-field {
+    padding: 8px;
+}
+
 .checkbox-input-field>label {
     color: #16325c;
 }

@@ -42,7 +42,7 @@ export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defau
     }
     if (type === 'radio') {
         return (
-            <RadioInputField name={name} label={label} options={options} defaultValue={defaultValue as string} />
+            <RadioInputField name={name} label={label} options={options as unknown as IInputFieldOption[]} defaultValue={defaultValue as string} />
         );
     }
     if (type === 'select') {

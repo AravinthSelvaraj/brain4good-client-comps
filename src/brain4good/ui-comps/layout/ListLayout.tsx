@@ -9,7 +9,7 @@ export const ListLayout: React.FC<Props> = ({ children }: Props): ReactElement =
         <div className="list-layout">
             {(() => {
                 return children?.map((child, index) => {
-                    return <div key={index} className="list-item mt8 wide">{child}</div>
+                    return <div key={index} className={`list-item wide${index !== 0 ? ' mt8' : ''}`}>{child}</div>
                 });
             })()}
         </div>

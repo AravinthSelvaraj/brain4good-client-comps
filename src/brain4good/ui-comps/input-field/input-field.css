@@ -1,4 +1,6 @@
 .input-field>label {
+    display: block;
+    margin-bottom: 0.5rem;
     font-size: 12px;
     color: rgb(84, 105, 141);
 }

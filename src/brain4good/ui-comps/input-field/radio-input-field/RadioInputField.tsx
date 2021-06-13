@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-import { ListLayout } from "../../layout/ListLayout";
+import { Layout } from "../../layout/Layout";
 
 import { IInputField, IInputFieldOption } from "../InputField";
 import { RadioInputFieldOption } from "./radio-input-field-option/RadioInputFieldOption";
@@ -8,14 +8,15 @@ import "./radio-input-field.css";
 interface IRadioInputField extends IInputField {
     defaultValue?: string
     options: IInputFieldOption[]
+    optionLayout?: 'horizontal' | 'vertical'
 }
 
-export const RadioInputField: React.FC<IRadioInputField> = ({ name, label, options, defaultValue }: IRadioInputField): ReactElement => {
+export const RadioInputField: React.FC<IRadioInputField> = ({ name, label, options, optionLayout, defaultValue }: IRadioInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
         <div className="input-field radio pad-tb-8">
             <label>{label}</label>
-            <ListLayout>
+            <Layout type={optionLayout} splitType='content'>
                 {(() => {
                     return options.map((option, index) =>
                         <RadioInputFieldOption key={index} name={name} label={option.label}
@@ -30,7 +31,7 @@ export const RadioInputField: React.FC<IRadioInputField> = ({ name, label, optio
                             }} />
                     )
                 })()}
-            </ListLayout>
+            </Layout>
         </div>
     );
 };

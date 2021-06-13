@@ -22,6 +22,10 @@
     margin-bottom: 1rem;
 }
 
+.ml20 {
+    margin-left: 1.25rem;
+}
+
 .r4 {
     border-radius: 4px;
 }
@@ -30,10 +34,42 @@
     float: left;
 }
 
+.fr {
+    float: right;
+}
+
 .hidden {
     display: none;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .wide {
     width: 100%;
+}
+
+.wide-2 {
+    width: calc(50% - 10px);
+}
+
+.wide-3 {
+    width: calc(33.3% - 13.3px);
+}
+
+.wide-4 {
+    width: calc(25% - 15px);
+}
+
+.wide-5 {
+    width: calc(20% - 20px);
+}
+
+.content-wide {
+    width: fit-content;
+}
+
+.height-0 {
+    height: 0px;
 }

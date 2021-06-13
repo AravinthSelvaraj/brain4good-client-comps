@@ -13,7 +13,7 @@ export const TextInputField: React.FC<ITextInputField> = ({ name, label, type, d
     return (
         <div className="input-field text">
             <label htmlFor={name}>{label}</label>
-            <input className="mt8 wide" type={type}
+            <input className="wide" type={type}
                 name={name} value={value}
                 onChange={(event: React.FocusEvent<HTMLInputElement>) => {
                     setValue(event.target.value);

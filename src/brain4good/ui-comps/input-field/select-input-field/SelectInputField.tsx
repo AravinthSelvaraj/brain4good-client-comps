@@ -13,8 +13,8 @@ export const SelectInputField: React.FC<ISelectInputField> = ({ name, label, opt
     return (
         <div className="input-field select">
             <label htmlFor="role">{label}</label>
-            <span className="down-arrow">&nbsp;</span>
-            <select className="mt8 wide" name={name} value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+            <span className="down-arrow fr height-0"></span>
+            <select className="wide" name={name} value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
                 setValue(event.target.value);
             }}>
                 {

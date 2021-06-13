@@ -27,9 +27,11 @@ type InputFieldProps = {
     defaultValue?: string | boolean
     btnType?: string
     options?: IInputFieldOption[]
+    optionLayout?: 'horizontal' | 'vertical'
 }
 
-export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defaultValue, btnType, options }: InputFieldProps): ReactElement => {
+export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defaultValue,
+    btnType, options, optionLayout }: InputFieldProps): ReactElement => {
     if (type === 'submit') {
         return (
             <SubmitInputField name={name} label={label} btnType={btnType} />
@@ -37,25 +39,29 @@ export const InputField: React.FC<InputFieldProps> = ({ name, label, type, defau
     }
     if (type === 'checkbox') {
         return (
-            <CheckboxInputField name={name} label={label} defaultValue={defaultValue as boolean} />
+            <CheckboxInputField name={name} label={label}
+                defaultValue={defaultValue as boolean} />
         );
     }
     if (type === 'radio') {
         return (
-            <RadioInputField name={name} label={label} options={options as unknown as IInputFieldOption[]} defaultValue={defaultValue as string} />
+            <RadioInputField name={name} label={label}
+                options={options as unknown as IInputFieldOption[]}
+                defaultValue={defaultValue as string}
+                optionLayout={optionLayout} />
         );
     }
     if (type === 'select') {
         return (
-            <SelectInputField name={name} label={label} options={options} defaultValue={defaultValue as string} />
+            <SelectInputField name={name} label={label} options={options}
+                defaultValue={defaultValue as string} />
         );
     }
     if (type === 'text' || type === 'password') {
         return (
-            <TextInputField name={name} label={label} type={type} defaultValue={defaultValue as string} />
+            <TextInputField name={name} label={label} type={type}
+                defaultValue={defaultValue as string} />
         );
     }
-    return (
-        <span>Invalid type is given</span>
-    )
+    throw Error('Sorry! Type not yet implemented');
 }

@@ -1,10 +1,4 @@
-.select-input-field label {
-    display: block;
-    font-size: 12px;
-    color: rgb(84, 105, 141);
-}
-
-.select-input-field .down-arrow::before {
+.input-field.select>span.down-arrow::before {
     content: "";
     display: block;
     margin: auto;
@@ -15,18 +9,17 @@
     border-top: .9rem solid #215ca0;
     right: 0.5rem;
     transform: scale(.45);
-    top: 1.8rem;
+    top: 2.3rem;
     position: relative;
     float: right;
     cursor: pointer;
 }
 
-.select-input-field select {
+.input-field.select>select {
     height: 100%;
     font-size: 0.8125rem;
     padding: 12px !important;
     cursor: pointer;
-    width: 100%;
     border: 1px solid rgb(216, 221, 230);
     border-radius: 4px;
     -webkit-appearance: none;
@@ -35,12 +28,12 @@
     transition: all 0.1s ease 0s;
 }
 
-.select-input-field select:focus {
+.input-field.select>select:focus {
     border: 1px solid rgb(21, 137, 238);
     box-shadow: rgb(0 112 210) 0px 0px 3px;
     outline: 0px;
 }
 
-.select-input-field select option {
+.input-field.select>select>option {
     color: #181818;
 }

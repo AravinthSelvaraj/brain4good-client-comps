@@ -1,7 +1,12 @@
-.checkbox-input-field {
-    padding: 8px;
+.input-field.checkbox {
+    cursor: pointer;
 }
 
-.checkbox-input-field>label {
+.input-field.checkbox>input {
+    cursor: pointer;
+}
+
+.input-field.checkbox>label {
     color: #16325c;
+    cursor: pointer;
 }

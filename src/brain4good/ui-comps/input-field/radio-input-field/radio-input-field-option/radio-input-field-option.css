@@ -1,13 +1,14 @@
-.radio-input-field-option label {
+.input-field.radio .field-option {
     cursor: pointer;
 }
 
-.radio-input-field-option .label-span {
+.input-field.radio .field-option>label {
+    cursor: pointer;
     vertical-align: middle;
     font-size: 0.8125rem;
 }
 
-.radio-input-field-option .radio-span {
+.input-field.radio .field-option>span {
     margin-right: 0.5rem;
     width: 1rem;
     height: 1rem;
@@ -22,7 +23,7 @@
     transition: border 0.1s linear, background-color 0.1s linear;
 }
 
-.radio-input-field-option.checked .radio-span::after {
+.input-field.radio .field-option.checked>span::after {
     width: .5rem;
     height: .5rem;
     content: '';

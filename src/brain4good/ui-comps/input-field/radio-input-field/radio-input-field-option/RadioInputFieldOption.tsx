@@ -11,17 +11,15 @@ export interface IRadioInputFieldOption extends IInputFieldOption {
 
 export const RadioInputFieldOption: React.FC<IRadioInputFieldOption> = ({ value, label, name, selected = false, onSelect }: IRadioInputFieldOption): ReactElement => {
     return (
-        <div className={`radio-input-field-option${selected ? ' checked' : ''}`}
+        <div className={`field-option${selected ? ' checked' : ''}`}
             onClick={() => {
                 if (onSelect) {
                     onSelect(value);
                 }
             }}>
             <input className="hidden" type="radio" name={name} value={value} />
-            <label htmlFor="gender">
-                <span className="radio-span"></span>
-                <span className="label-span">{label}</span>
-            </label>
+            <span></span>
+            <label htmlFor="gender">{label}</label>
         </div>
     );
 }

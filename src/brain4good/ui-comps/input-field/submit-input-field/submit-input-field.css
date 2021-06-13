@@ -1,23 +1,22 @@
-.submit-input-field>input {
+.input-field.submit>input {
     padding: 12px 24px;
     border-radius: 4px;
     font-size: 0.8125rem;
     cursor: pointer;
-    width: 100%;
 }
 
-.primary {
+.btn.primary {
     background-color: rgb(0, 112, 210);
     color: white;
     border: 1px solid transparent;
 }
 
-.secondary {
+.btn.secondary {
     background-color: #ffffff;
     border: 1px solid #D8DDE6;
     color: #0070d2 !important;
 }
 
-.secondary:hover {
+.btn.secondary:hover {
     background-color: #F4F6F9;
 }

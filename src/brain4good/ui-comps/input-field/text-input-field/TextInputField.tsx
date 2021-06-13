@@ -11,9 +11,9 @@ interface ITextInputField extends IInputField {
 export const TextInputField: React.FC<ITextInputField> = ({ name, label, type, defaultValue = "" }: ITextInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
-        <div className="text-input-field">
+        <div className="input-field text">
             <label htmlFor={name}>{label}</label>
-            <input className="mt8" type={type}
+            <input className="mt8 wide" type={type}
                 name={name} value={value}
                 onChange={(event: React.FocusEvent<HTMLInputElement>) => {
                     setValue(event.target.value);

@@ -10,12 +10,11 @@ interface ICheckboxInputField extends IInputField {
 export const CheckboxInputField: React.FC<ICheckboxInputField> = ({ name, label, defaultValue = false }: ICheckboxInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
-        <div className="checkbox-input-field">
+        <div className="input-field checkbox pad-tb-8" onClick={() => {
+            setValue(!value);
+        }}>
             <input className="mr8 r4 fl" type="checkbox"
-                name={name} checked={value}
-                onChange={(event: React.FocusEvent<HTMLInputElement>) => {
-                    setValue(event.target.checked);
-                }} />
+                name={name} checked={value} readOnly />
             <label htmlFor={name}>{label}</label>
         </div>
     );

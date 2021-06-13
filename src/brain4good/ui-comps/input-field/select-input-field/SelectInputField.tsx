@@ -11,10 +11,10 @@ interface ISelectInputField extends IInputField {
 export const SelectInputField: React.FC<ISelectInputField> = ({ name, label, options = [], defaultValue }: ISelectInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
-        <div className="select-input-field">
+        <div className="input-field select">
             <label htmlFor="role">{label}</label>
             <span className="down-arrow">&nbsp;</span>
-            <select name={name} value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+            <select className="mt8 wide" name={name} value={value} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
                 setValue(event.target.value);
             }}>
                 {

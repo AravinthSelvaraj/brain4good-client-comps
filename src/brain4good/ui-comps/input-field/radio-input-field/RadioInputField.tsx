@@ -13,7 +13,8 @@ interface IRadioInputField extends IInputField {
 export const RadioInputField: React.FC<IRadioInputField> = ({ name, label, options, defaultValue }: IRadioInputField): ReactElement => {
     const [value, setValue] = useState(defaultValue);
     return (
-        <div className="radio-input-field pad8">
+        <div className="input-field radio pad-tb-8">
+            <label>{label}</label>
             <ListLayout>
                 {(() => {
                     return options.map((option, index) =>

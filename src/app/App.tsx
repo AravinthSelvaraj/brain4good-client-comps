@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 
-import "../brain4good/ui-comps/global.css";
+import "../brain4good/ui-comps/ui-comps.css";
 
 // import Heading from "./heading/Heading";
 // import Content from "./content/Content";
